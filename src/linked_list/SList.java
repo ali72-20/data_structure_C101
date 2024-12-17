@@ -1,7 +1,7 @@
 package linked_list;
 
-public class SList {
-    Node head;
+public class SList<E> {
+    Node<E> head;
     int size;
 
     public SList(){
@@ -21,15 +21,15 @@ public class SList {
         size+= update;
     }
 
-    public int getHead(){
+    public E getHead(){
         if(isEmpty()){
             throw new RuntimeException("List is empty");
         }
         return head.data;
     }
 
-    public void insertBack(int data){
-        Node newNode = new Node(data);
+    public void insertBack(E data){
+        Node<E> newNode = new Node<E>(data);
         updateSize(1);
         if(isEmpty()){
             head = newNode;
@@ -42,8 +42,8 @@ public class SList {
         current.next = newNode;
     }
 
-    public void insertFront(int data){
-        Node newNode = new Node(data);
+    public void insertFront(E data){
+        Node<E> newNode = new Node<E>(data);
         updateSize(1);
         if(isEmpty()){
             head = newNode;
@@ -52,7 +52,8 @@ public class SList {
         newNode.next  = head;
         head = newNode;
     }
-    public void insertInPosition(int data, int pos){
+
+    public void insertInPosition(E data, int pos){
         if(pos > getSize()){
             throw new IndexOutOfBoundsException("Out of bound");
         }
@@ -67,9 +68,9 @@ public class SList {
             insertBack(data);
             return;
         }
-        Node newNode = new Node(data);
+        Node<E> newNode = new Node<E>(data);
         updateSize(1);
-        Node current = head;
+        Node<E> current = head;
         int currentPosition = 0;
         while (currentPosition + 1 < pos){
             currentPosition++;
@@ -78,6 +79,7 @@ public class SList {
         newNode.next = current.next;
         current.next = newNode;
     }
+
     public void removeInPosition(int pos){
         if(pos >= getSize()){
             throw new IndexOutOfBoundsException("Out of bound");
@@ -105,6 +107,7 @@ public class SList {
         deletedNode = null;
         System.gc();
     }
+
     public void removeFront(){
         if(isEmpty()){
             throw new RuntimeException("list is empty");
@@ -113,7 +116,8 @@ public class SList {
         head = head.next;
         System.gc();
     }
-    public void updateInPosition(int newData, int pos){
+
+    public void updateInPosition(E newData, int pos){
         if(pos >= getSize()){
             throw new IndexOutOfBoundsException("Out of bound");
         }
@@ -128,6 +132,7 @@ public class SList {
         }
         currentNode.data = newData;
     }
+
     public void removeBack(){
         if(isEmpty()){
             throw new RuntimeException("List is empty");

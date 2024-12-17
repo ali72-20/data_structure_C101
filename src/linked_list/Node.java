@@ -1,9 +1,9 @@
 package linked_list;
 
-public class Node {
-    int data;
+public class Node<E>{
+    E data;
     Node next;
-    Node(int data){
+    Node(E data){
         this.data = data;
         next = null;
     }
