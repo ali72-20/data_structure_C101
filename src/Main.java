@@ -27,6 +27,14 @@ public class Main {
         list.print();
         list.insertInPosition(30,2);
         list.print();
-        list.insertInPosition(2,30);
+        list.removeInPosition(0);
+        list.print();
+        list.removeInPosition(4);
+        list.print();
+        list.removeInPosition(2);
+        list.print();
+        System.out.println(list.getSize());
+        list.updateInPosition(100,1);
+        list.print();
     }
 }
